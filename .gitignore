@@ -1,0 +1,31 @@
+# Ambientes virtuais Python
+.venv/
+env/
+venv/
+ENV/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Banco de dados local temporário
+*.db-journal
+
+# Logs e arquivos temporários
+*.log
+.DS_Store
+Thumbs.db
+
+# Skills e temporarios de design
+ui-ux-pro-max-skill/
+*.bak
+
+# Dados operacionais e bancos locais
+*.db
+backups/
+database/*.json
+database/*.jsonl
+database/backups/
+frontend/img/

@@ -1,0 +1,32 @@
+body { background: #f4f6f9; }
+#sidebar { width: 230px; min-height: 100vh; position: sticky; top: 0; flex-shrink: 0; }
+#sidebar .nav-link { color: #cfd4da; cursor: pointer; margin-bottom: 4px; }
+#sidebar .nav-link.active { background: #ffc107; color: #212529; }
+.card-zona { cursor: pointer; border-left: 5px solid #ffc107; transition: transform .1s; }
+.card-zona:hover { transform: translateY(-2px); }
+.card-zona.ativa { background: #fff8e1; }
+.mat-link { cursor: pointer; font-weight: 600; color: #0d6efd; }
+.badge-incidencia { background: #6f42c1; }
+.folha-a4 { background: #fff; width: 210mm; min-height: 297mm; margin: 0 auto; padding: 15mm; box-shadow: 0 0 8px rgba(0,0,0,.15); font-size: 11px; }
+.folha-a4 h4 { border-bottom: 2px solid #000; padding-bottom: 6px; }
+.folha-a4 table { width: 100%; border-collapse: collapse; }
+.folha-a4 th, .folha-a4 td { border: 1px solid #444; padding: 3px 5px; }
+.folha-a4 th { background: #e9ecef; }
+@media (max-width: 768px) {
+  .d-flex:has(> #sidebar) { flex-direction: column; }
+  #sidebar { width: 100%; min-height: auto; position: static; }
+  #sidebar .nav { flex-direction: row !important; flex-wrap: wrap; }
+  .folha-a4 { width: 100%; padding: 8px; overflow-x: auto; }
+}
+@page { size: A4; margin: 10mm; }
+@media print {
+  .no-print, #sidebar { display: none !important; }
+  body { background: #fff; }
+  main { padding: 0 !important; }
+  .folha-a4 { box-shadow: none; margin: 0; width: 100%; padding: 0; }
+  /* ao imprimir o relatório, esconde as outras telas; ao imprimir QR, só o modal */
+  body.imprimindo-qr .view, body.imprimindo-qr .modal-header, body.imprimindo-qr .modal-footer { display: none !important; }
+  body.imprimindo-qr .modal { position: static; display: block !important; }
+  body.imprimindo-qr .modal-backdrop { display: none; }
+  body:not(.imprimindo-qr) .view.d-none { display: none !important; }
+}
